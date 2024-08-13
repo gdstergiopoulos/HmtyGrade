@@ -18,4 +18,26 @@
     margin-bottom: 2%;
 }
 
+.loginpage, .registerpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12%;
+}
 
+.loginpage>form, .registerpage>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#linktoreg{
+    text-decoration: none;
+    color: rgb(24, 145, 243);
+    align-self: center;
+}
+
+#linktoreg:hover{
+    text-decoration: underline;
+}

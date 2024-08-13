@@ -29,18 +29,22 @@
         </ul>
     </nav>
     
-    <div class="loginpage">
+    <div class="registerpage">
             <form>
-                <h1>Σύνδεση</h1>
+                <h1>Εγγραφή</h1>
                 <br>
                 <label for="username" class="form-label">Όνομα Χρήστη</label>
                 <input type="text" class="form-control" id="username" name="username" required>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
                 <label for="password" class="form-label">Κωδικός</label>
                 <input type="password" class="form-control" id="password" name="password" required>
+                <label for="confirmpassword" class="form-label">Επιβεβαίωση Κωδικού</label>
+                <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" required>
                 <br>
-                <button type="submit" class="btn btn-primary">Σύνδεση</button>
+                <button type="submit" class="btn btn-primary">Δημιουργία</button>
                 <br>
-                <a id="linktoreg" href="register.html">Δεν εχω λογαριασμό</a>
+                <a id="linktoreg" href="login.html">Έχω λογαριασμό</a>
             </form>
         </div>
 </body>
