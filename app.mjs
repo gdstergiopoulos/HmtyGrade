@@ -35,9 +35,19 @@ router.route('/home').get((req, res) => {
     res.redirect('/');
 });
 
+router.route('/about').get((req, res) => {
+    res.render('about');
+});
+
+router.route('/contact').get((req, res) => {
+    res.render('contact');
+});
+
 router.use((req, res) => {
     res.render('catcherror');
 });
+
+
 
 const PORT=process.env.PORT || 3000;
 const server = app.listen(PORT, () => { console.log(`http://127.0.0.1:${PORT}`) });

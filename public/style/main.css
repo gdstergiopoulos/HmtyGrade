@@ -41,3 +41,25 @@
 #linktoreg:hover{
     text-decoration: underline;
 }
+
+#contactpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: auto;
+    margin-left: auto;
+}
+
+#contact{
+    align-self: center;
+    border: 2px;
+}
+
+#githubrepo{
+    text-decoration: none;
+    color: rgb(0, 83, 179);
+}
+
+#githubrepo:hover{
+    text-decoration: underline;
+}
