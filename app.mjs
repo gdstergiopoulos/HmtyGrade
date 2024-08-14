@@ -19,6 +19,17 @@ app.set('view engine', 'hbs');
 app.use(router);
 router.use(express.urlencoded({ extended: true }));
 
+router.use(session({
+        
+    secret: process.env.SESSION_SECRET || "PynOjAuHetAuWawtinAytVunar", // κλειδί για κρυπτογράφηση του cookie
+    resave: false, // δεν χρειάζεται να αποθηκεύεται αν δεν αλλάξει
+    saveUninitialized: false, // όχι αποθήκευση αν δεν έχει αρχικοποιηθεί
+    cookie: {
+      maxAge: 2 * 60 * 60 * 1000, //TWO_HOURS χρόνος ζωής του cookie σε ms
+      sameSite: true
+    }
+  }));
+
 router.route('/').get((req, res) => {
     res.render('main');
 });
@@ -41,6 +52,18 @@ router.route('/about').get((req, res) => {
 
 router.route('/contact').get((req, res) => {
     res.render('contact');
+});
+
+router.route('/login').post((req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+    console.log(username);
+    if (username === 'admin' && password === 'admin') {
+        req.session.username = username;
+        res.redirect('/home');
+    } else {
+        res.redirect('/login');
+    }
 });
 
 router.use((req, res) => {
