@@ -28,7 +28,8 @@
     "express-handlebars": "^7.0.7",
     "express-session": "^1.18.0",
     "nodemon": "^3.1.0",
-    "pg": "^8.11.5"
+    "pg": "^8.11.5",
+    "better-sqlite3": "^9.6.0"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.5.7"

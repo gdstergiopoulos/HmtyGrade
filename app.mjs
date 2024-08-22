@@ -3,7 +3,7 @@ import express from 'express'
 // Handlebars (https://www.npmjs.com/package/express-handlebars)
 import { engine } from 'express-handlebars'
 import session from 'express-session';
-
+import * as model from './model/model.mjs'
 
 
 
@@ -35,7 +35,12 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/login').get((req, res) => {
-    res.render('login');
+    if(req.session.username){
+        res.render('myprofile', {username: req.session.username});
+    }
+    else{
+        res.render('login');
+    }
 });
 
 router.route('/register').get((req, res) => {
@@ -54,15 +59,22 @@ router.route('/contact').get((req, res) => {
     res.render('contact');
 });
 
-router.route('/login').post((req, res) => {
+router.route('/login').post(async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
-    console.log(username);
-    if (username === 'admin' && password === 'admin') {
-        req.session.username = username;
-        res.redirect('/home');
-    } else {
-        res.redirect('/login');
+    try{
+        const user = await model.checkLogin(username, password); 
+        if(user.length > 0){
+            req.session.username = username;
+            res.redirect('/home');
+        }
+        else{
+            res.redirect('/login');
+        }
+    }
+    catch(err){
+        console.log(err);
+        res.send(err);
     }
 });
 
