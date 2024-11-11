@@ -1,332 +1,109 @@
 {{>navbar username=username}}
 <div id="pagebody">
-    <h1>Μέσο Όρος: <span id="avggrade"></span></h1>
+    <h1>Μέσος Όρος: <span id="avggrade"></span></h1>
     <div class="formdiv">
         <form>
             <div class="year" id="year1">
                 <div class="semester form-group" id="semester1">
-                    <legend>1ο Εξάμηνο</legend>
-                    <div class="course">
-                        <label for="grade11">Αγγλικά</label>
-                        <input type="number" id="grade11" name="grade11" min="0" max="10" step="0.5" required>
+                    <legend>1o Εξάμηνο</legend>
+                    {{#each courses1}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
-                    <div class="course">
-                        <label for="grade12">Λογισμός Συναρτήσεων Μίας Μεταβλητής</label>
-                        <input type="number" id="grade12" name="grade12" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade13">Γραμμική Άλγεβρα</label>
-                        <input type="number" id="grade13" name="grade13" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade14">Εισαγωγή Στους Υπολογιστές</label>
-                        <input type="number" id="grade14" name="grade14" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade15">Σύγχρονη Φυσική</label>
-                        <input type="number" id="grade15" name="grade15" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade16">Εφαρμοσμένη Φυσική</label>
-                        <input type="number" id="grade16" name="grade16" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade17">Ψηφιακή Λογική</label>
-                        <input type="number" id="grade17" name="grade17" min="0" max="10" step="0.5" required>
-                    </div>
+                    {{/each}}
                 </div>
                 <div class="semester form-group" id="semester2">
-                    <legend>2ο Εξάμηνο</legend>
-                    <div class="course">
-                        <label for="grade21">Eισαγωγή στην επιστήμη του ΗΜΤΥ</label>
-                        <input type="number" id="grade21" name="grade21" min="0" max="10" step="0.5" required>
+                    <legend>2o Εξάμηνο</legend>
+                    {{#each courses2}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
-                    <div class="course">
-                        <label for="grade27">Ηλεκτρικά Κυκλώματα Ι</label>
-                        <input type="number" id="grade27" name="grade27" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade22">Λογισμός Συναρτήσεων Πολλών Μεταβλητών</label>
-                        <input type="number" id="grade22" name="grade22" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade23">Εργαστήριο Εφαρμοσμένης Φυσικής</label>
-                        <input type="number" id="grade23" name="grade23" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade24">Συνήθεις Διαφορικές Εξισώσεις</label>
-                        <input type="number" id="grade24" name="grad24" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade25">Διαδικαστικός Προγραμματισμός (C)</label>
-                        <input type="number" id="grade25" name="grade25" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade26">Τεχνική Μηχανική</label>
-                        <input type="number" id="grade26" name="grade26" min="0" max="10" step="0.5" required>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
             <div class="year" id="year2">
                 <div class="semester form-group" id="semester3">
-                    <legend>3ο Εξάμηνο</legend>
-                    <div class="course">
-                        <label for="grade31">Ηλεκτρικά Κυκλώματα ΙΙ</label>
-                        <input type="number" id="grade31" name="grade31" min="0" max="10" step="0.5" required>
+                    <legend>3o Εξάμηνο</legend>
+                    {{#each courses3}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
-                    <div class="course">
-                        <label for="grade32">Μερικές Διαφορικές Εξισώσεις</label>
-                        <input type="number" id="grade32" name="grade32" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade33">Πιθανοθεωρία και Στατιστική</label>
-                        <input type="number" id="grade33" name="grade33" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade34">Ηλεκτροτεχνικά-Ηλεκτρονικά Υλικά</label>
-                        <input type="number" id="grade34" name="grade34" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade35">Ψηφιακά Κυκλώματα και Συστήματα (ΨΚΣ)</label>
-                        <input type="number" id="grade35" name="grade35" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade36">Αντικειμενοστρεφής Τεχνολογία (JAVA)</label>
-                        <input type="number" id="grade36" name="grade36" min="0" max="10" step="0.5" required>
-                    </div>
+                    {{/each}}
                 </div>
                 <div class="semester form-group" id="semester4">
-                    <legend>4ο Εξάμηνο</legend>
-                    <div class="course">
-                        <label for="grade41">Ηλεκτρομαγνητικά Πεδία Ι</label>
-                        <input type="number" id="grade41" name="grade41" min="0" max="10" step="0.5" required>
+                    <legend>4o Εξάμηνο</legend>
+                    {{#each courses4}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
-                    <div class="course">
-                        <label for="grade42">Μικροηλεκτρονικές Διατάξεις και Κυκλώματα</label>
-                        <input type="number" id="grade42" name="grade42" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade43">Ανάλυση Δικτύων Ισχύος</label>
-                        <input type="number" id="grade43" name="grade43" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade44">Οργάνωση Υπολογιστών</label>
-                        <input type="number" id="grade44" name="grade44" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade45">Δίκτυα Επικοινωνιών</label>
-                        <input type="number" id="grade45" name="grade45" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade46">Σήματα και Συστήματα</label>
-                        <input type="number" id="grade46" name="grade46" min="0" max="10" step="0.5" required>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
             <div class="year" id="year3">
                 <div class="semester form-group" id="semester5">
-                    <legend>5ο Εξάμηνο</legend>
-                    <div class="course">
-                        <label for="grade51">Ηλεκτρομαγνητικά Πεδία ΙΙ</label>
-                        <input type="number" id="grade51" name="grade51" min="0" max="10" step="0.5" required>
+                    <legend>5o Εξάμηνο</legend>
+                    {{#each courses5}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
-                    <div class="course">
-                        <label for="grade52">Ολοκληρωμένα Ηλεκτρονικά</label>
-                        <input type="number" id="grade52" name="grade52" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade53">Αριθμητική Ανάλυση</label>
-                        <input type="number" id="grade53" name="grade53" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade54">Επεξεργασία Σημάτων</label>
-                        <input type="number" id="grade54" name="grade54" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade55">Συστήματα Επικοινωνιών</label>
-                        <input type="number" id="grade55" name="grade55" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade56">Συστήματα Ηλεκτρικής Ενέργειας (ΣΗΕ)</label>
-                        <input type="number" id="grade56" name="grade56" min="0" max="10" step="0.5" required>
-                    </div>
+                    {{/each}}
                 </div>
                 <div class="semester form-group" id="semester6">
-                    <legend>6ο Εξάμηνο</legend>
-                    <div class="course">
-                        <label for="grade61">Συστήματα Αυτομάτου Ελέγχου (ΣΑΕ)</label>
-                        <input type="number" id="grade61" name="grade61" min="0" max="10" step="0.5" required>
+                    <legend>6o Εξάμηνο</legend>
+                    {{#each courses6}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
-                    <div class="course">
-                        <label for="grade62">Ηλεκτρικές Μετρητικές Διατάξεις</label>
-                        <input type="number" id="grade62" name="grade62" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade63">Μικρουπολογιστικά Ενσωματωμένα Συστήματα</label>
-                        <input type="number" id="grade63" name="grade63" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade64">Ηλεκτρικές Μηχανές</label>
-                        <input type="number" id="grade64" name="grade64" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade65">Τεχνικό Σχέδιο</label>
-                        <input type="number" id="grade65" name="grade65" min="0" max="10" step="0.5" required>
-                    </div>
-                    <div class="course">
-                        <label for="grade66">Αλγόριθμοι και Δομές Δεδομένων</label>
-                        <input type="number" id="grade66" name="grade66" min="0" max="10" step="0.5" required>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
-            <div class="year" id="year4">
-                <div class="semester form-group" id="semester7">
-                    <legend>7ο Εξάμηνο</legend>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 1" name="course71">
-                        <input type="number" id="grade71" name="grade71" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt71">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 2" name="course72">
-                        <input type="number" id="grade72" name="grade72" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt72">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 3" name="course73">
-                        <input type="number" id="grade73" name="grade73" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt73">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 4" name="course74">
-                        <input type="number" id="grade74" name="grade74" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt74">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 5" name="course75">
-                        <input type="number" id="grade75" name="grade75" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt75">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">    
-                        <input type="text" placeholder="Μάθημα 6" name="course76">
-                        <input type="number" id="grade76" name="grade76" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt76">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div>
-                <div class="semester form-group" id="semester8">
-                    <legend>8ο Εξάμηνο</legend>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 1" name="course81">
-                        <input type="number" id="grade81" name="grade81" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt81">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 2" name="course82">
-                        <input type="number" id="grade82" name="grade82" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt82">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 3" name="course83">
-                        <input type="number" id="grade83" name="grade83" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt83">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 4" name="course84">
-                        <input type="number" id="grade84" name="grade84" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt84">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 5" name="course85">
-                        <input type="number" id="grade85" name="grade85" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt85">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 6" name="course86">
-                        <input type="number" id="grade86" name="grade86" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt86">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="year" id="year5">
-                <div class="semester form-group" id="semester9">
-                    <legend>9ο Εξάμηνο</legend>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 1" name="course91">
-                        <input type="number" id="grade91" name="grade91" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt91">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 2" name="course92">
-                        <input type="number" id="grade92" name="grade92" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt92">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 3" name="course93">
-                        <input type="number" id="grade93" name="grade93" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt93">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="course">
-                        <input type="text" placeholder="Μάθημα 4" name="course94">
-                        <input type="number" id="grade94" name="grade94" min="0" max="10" step="0.5" required>
-                        <label class="switch">
-                            <input type="checkbox" name="synt94">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div>
-                <div class="semester form-group" id="semesterX">
-                    <legend>10ο Εξάμηνο</legend>
-                    <div class="course">
-                        <label for="grade46">Διπλωματική Εργασία:</label>
-                        <input type="number" id="grade46" name="grade46" min="0" max="10" step="0.5" required>
-                    </div>  
-                </div>
-            </div>
+
         </form>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const inputs = document.querySelectorAll('input[type="number"]');
+        const weights = document.querySelectorAll('#weight');
+        const values = Array.from(inputs).map(input => input.value);
+        const weightsValues = Array.from(weights).map(weight => Number(weight.textContent));
+        console.log(values);
+        console.log(weightsValues);
+    });
+
+    document.addEventListener('input', (event) => {
+        const inputs = document.querySelectorAll('input[type="number"]');
+        const weights = document.querySelectorAll('#weight');
+        const values = Array.from(inputs).map(input => input.value);
+        const weightsValues = Array.from(weights).map(weight => Number(weight.textContent));
+        console.log(values);
+        console.log(weightsValues);
+
+        
+    
+    let totalWeight = 0;
+    let weightedSum = 0;
+
+    inputs.forEach((input, index) => {
+        const value = parseFloat(input.value);
+        if (!isNaN(value) && value !== 0) {
+            const weight = weightsValues[index];
+            weightedSum += value * weight;
+            totalWeight += weight;
+        }
+    });
+
+    const avgGrade = (totalWeight === 0) ? 0 : (weightedSum / totalWeight).toFixed(2);
+    document.getElementById('avggrade').textContent = avgGrade;
+
+    });
+
+
+</script>
