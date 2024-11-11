@@ -63,6 +63,46 @@
                     {{/each}}
                 </div>
             </div>
+            <div class="year" id="year4">
+                <div class="semester form-group" id="semester7">
+                    <legend>7o Εξάμηνο</legend>
+                    {{#each courses7}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="semester form-group" id="semester8">
+                    <legend>8o Εξάμηνο</legend>
+                    {{#each courses8}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="year" id="year5">
+                <div class="semester form-group" id="semester9">
+                    <legend>9o Εξάμηνο</legend>
+                    {{#each courses9}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="semester form-group" id="semester10">
+                    <legend>10o Εξάμηνο</legend>
+                    {{#each courses10}}
+                    <div class="course" id="{{this.courseCode}}">
+                        <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
+                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
 
         </form>
     </div>

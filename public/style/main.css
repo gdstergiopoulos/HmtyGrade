@@ -20,10 +20,19 @@
 
 .course{
     display: flex;
+    font-weight: normal;
+    text-align: left;
 }
 
-.course>label{
-    flex-grow: 1;
+.course label{
+    flex:  1;
+    font-weight: normal;
+    text-align: left;
+}
+
+.course input[type="number"]{
+    flex: 0 0 80px;
+    text-align: center;
 }
 
 

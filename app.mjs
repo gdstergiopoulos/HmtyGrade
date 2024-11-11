@@ -30,13 +30,24 @@ router.use(session({
     }
   }));
 
-router.route('/').get((req, res) => {
+router.route('/').get(async (req, res) => {
+    let courses1= await model.getCourses(1);
+    let courses2= await model.getCourses(2);
+    let courses3= await model.getCourses(3);
+    let courses4= await model.getCourses(4);
+    let courses5= await model.getCourses(5);
+    let courses6= await model.getCourses(6);
+    let courses10= await model.getCourses(10);
+    
     if(req.session.username){
-        res.render('main', {username: req.session.username});
+        let courses7= await model.getSelectedCourses(req.session.username,7);
+        let courses8= await model.getSelectedCourses(req.session.username,8);
+        let courses9= await model.getSelectedCourses(req.session.username,9);
+        res.render('main', {courses1: courses1, courses2: courses2, courses3: courses3, courses4: courses4, courses5: courses5, courses6: courses6,courses7:courses7,courses8: courses8, courses9:courses9 , courses10: courses10, username: req.session.username});
     }
     else
-    {
-        res.render('main');
+    {   
+        res.render('main', {courses1: courses1, courses2: courses2, courses3: courses3, courses4: courses4, courses5: courses5, courses6: courses6, courses10: courses10});
     }
 });
 
