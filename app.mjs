@@ -31,7 +31,13 @@ router.use(session({
   }));
 
 router.route('/').get((req, res) => {
-    res.render('main');
+    if(req.session.username){
+        res.render('main', {username: req.session.username});
+    }
+    else
+    {
+        res.render('main');
+    }
 });
 
 router.route('/login').get((req, res) => {
@@ -52,11 +58,22 @@ router.route('/home').get((req, res) => {
 });
 
 router.route('/about').get((req, res) => {
-    res.render('about');
+    if(req.session.username){
+        res.render('about', {username: req.session.username});
+    }
+    else{
+        res.render('about');
+    }
+    
 });
 
 router.route('/contact').get((req, res) => {
-    res.render('contact');
+    if(req.session.username){
+        res.render('contact', {username: req.session.username});
+    }
+    else{
+        res.render('contact');
+    }
 });
 
 router.route('/login').post(async (req, res) => {
