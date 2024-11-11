@@ -100,9 +100,21 @@ router.route('/login').post(async (req, res) => {
     }
 });
 
+router.route('/main2').get(async (req, res) => {
+    let courses1= await model.getCourses(1);
+    let courses2= await model.getCourses(2);
+    let courses3= await model.getCourses(3);
+    let courses4= await model.getCourses(4);
+    let courses5= await model.getCourses(5);
+    let courses6= await model.getCourses(6);
+    let courses10= await model.getCourses(10);
+    res.render('main2', {courses1: courses1, courses2: courses2, courses3: courses3, courses4: courses4, courses5: courses5, courses6: courses6, courses10: courses10});
+});
+
 router.use((req, res) => {
     res.render('catcherror');
 });
+
 
 
 

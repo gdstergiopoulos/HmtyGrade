@@ -49,3 +49,14 @@ export let getSelectionCourses = () => {
         throw err;
     }
 }
+
+export let getAllCoreCourses = () => {
+    let stmt = sql.prepare('SELECT courseName, syntelestis FROM Course WHERE semester in (1,2,3,4,5,6,10)');
+    try{
+        let courses = stmt.all();
+        return courses;
+    }
+    catch(err){
+        throw err;
+    }
+}
