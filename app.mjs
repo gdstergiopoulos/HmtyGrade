@@ -76,6 +76,11 @@ router.route('/contact').get((req, res) => {
     }
 });
 
+router.route('/logout').get((req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+});
+
 router.route('/login').post(async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
