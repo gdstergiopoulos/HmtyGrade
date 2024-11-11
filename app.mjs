@@ -5,7 +5,7 @@ import { engine } from 'express-handlebars'
 import session from 'express-session';
 import * as model from './model/model.mjs'
 
-
+//TODO not logged in or declared Μάθημα 1 .. κλπ με toggle συντελεστή
 
 const app = express()
 const router = express.Router();
