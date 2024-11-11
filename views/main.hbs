@@ -2,14 +2,14 @@
 <div id="pagebody">
     <h1>Μέσος Όρος: <span id="avggrade"></span></h1>
     <div class="formdiv">
-        <form>
+        <form method="post">
             <div class="year" id="year1">
                 <div class="semester form-group" id="semester1">
                     <legend>1o Εξάμηνο</legend>
                     {{#each courses1}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -18,7 +18,7 @@
                     {{#each courses2}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -29,7 +29,7 @@
                     {{#each courses3}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -38,7 +38,7 @@
                     {{#each courses4}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -49,7 +49,7 @@
                     {{#each courses5}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -58,7 +58,7 @@
                     {{#each courses6}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -69,7 +69,7 @@
                     {{#each courses7}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -78,7 +78,7 @@
                     {{#each courses8}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -89,7 +89,7 @@
                     {{#each courses9}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
@@ -98,25 +98,57 @@
                     {{#each courses10}}
                     <div class="course" id="{{this.courseCode}}">
                         <label for="grade" >{{this.courseName}}<span type="number" id="weight" value="{{this.syntelestis}}" hidden>{{this.syntelestis}}</span></label>
-                        <input type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
+                        <input name={{this.courseCode}} type="number" class="form-control" id="grade" step="0.5" min="0" max="10">
                     </div>
                     {{/each}}
                 </div>
             </div>
-
+            <button class="btn btn-primary" id="gradessubmit" type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const inputs = document.querySelectorAll('input[type="number"]');
-        const weights = document.querySelectorAll('#weight');
-        const values = Array.from(inputs).map(input => input.value);
-        const weightsValues = Array.from(weights).map(weight => Number(weight.textContent));
-        console.log(values);
-        console.log(weightsValues);
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('/api/grades')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                data.forEach(course => {
+                    const input = document.querySelector(`input[name="${course.course}"]`);
+                    if (input) {
+                        input.value = course.grade;
+                    }
+                });
+            }).
+            then(() => calculateAverageGrade())
+            .catch(error => console.error(error));
+
+            const calculateAverageGrade = () => {
+                const inputs = document.querySelectorAll('input[type="number"]');
+                const weights = document.querySelectorAll('span#weight');
+                let totalWeight = 0;
+                let weightedSum = 0;
+
+                inputs.forEach((input, index) => {
+                    const value = parseFloat(input.value);
+                    const weight = parseFloat(weights[index].textContent);
+                    if (!isNaN(value) && !isNaN(weight) && value >= 5 && value <= 10) {
+                        weightedSum += value * weight;
+                        totalWeight += weight;
+                    }
+                });
+
+                const avgGrade = (totalWeight === 0) ? 0 : (weightedSum / totalWeight).toFixed(2);
+                document.getElementById('avggrade').textContent = avgGrade;
+            };
+
+            
+            
     });
+
+    
+  
 
     document.addEventListener('input', (event) => {
         const inputs = document.querySelectorAll('input[type="number"]');
@@ -133,7 +165,7 @@
 
     inputs.forEach((input, index) => {
         const value = parseFloat(input.value);
-        if (!isNaN(value) && value !== 0) {
+        if (!isNaN(value) && value !== 0  && value >= 5 && value <= 10) {
             const weight = weightsValues[index];
             weightedSum += value * weight;
             totalWeight += weight;
@@ -144,6 +176,8 @@
     document.getElementById('avggrade').textContent = avgGrade;
 
     });
+
+  
 
 
 </script>

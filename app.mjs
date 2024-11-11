@@ -17,6 +17,7 @@ app.set('view engine', 'hbs');
 
 
 app.use(router);
+router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
 router.use(session({
@@ -43,6 +44,8 @@ router.route('/').get(async (req, res) => {
         let courses7= await model.getSelectedCourses(req.session.username,7);
         let courses8= await model.getSelectedCourses(req.session.username,8);
         let courses9= await model.getSelectedCourses(req.session.username,9);
+        
+        
         res.render('main', {courses1: courses1, courses2: courses2, courses3: courses3, courses4: courses4, courses5: courses5, courses6: courses6,courses7:courses7,courses8: courses8, courses9:courses9 , courses10: courses10, username: req.session.username});
     }
     else
@@ -66,6 +69,20 @@ router.route('/register').get((req, res) => {
 
 router.route('/home').get((req, res) => {
     res.redirect('/');
+});
+
+router.route('/api/grades').get(async (req, res) => {
+    let username = req.session.username;
+    if (!username) {
+        return res.status(401).send('Unauthorized');
+    }
+    try {
+        let grades = await model.getGrades(username);
+        res.json(grades);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
+    }
 });
 
 router.route('/about').get((req, res) => {
@@ -97,9 +114,10 @@ router.route('/login').post(async (req, res) => {
     let password = req.body.password;
     try{
         const user = await model.checkLogin(username, password); 
-        if(user.length > 0){
+        // console.log(user)
+        if(user){
             req.session.username = username;
-            res.redirect('/home');
+            res.redirect('/');
         }
         else{
             res.redirect('/login');
@@ -111,16 +129,74 @@ router.route('/login').post(async (req, res) => {
     }
 });
 
-router.route('/main2').get(async (req, res) => {
-    let courses1= await model.getCourses(1);
-    let courses2= await model.getCourses(2);
-    let courses3= await model.getCourses(3);
-    let courses4= await model.getCourses(4);
-    let courses5= await model.getCourses(5);
-    let courses6= await model.getCourses(6);
-    let courses10= await model.getCourses(10);
-    res.render('main2', {courses1: courses1, courses2: courses2, courses3: courses3, courses4: courses4, courses5: courses5, courses6: courses6, courses10: courses10});
+
+router.route('/').post(async (req, res) => {
+    let username = req.session.username;
+    
+    if (!username) {
+        return res.redirect('/login');
+    }
+
+    let getAllStudentCodes = await model.getAllStudentCodes(username);
+
+    // console.log(getAllStudentCodes);
+    let studentCodes = getAllStudentCodes.map(studentcode => studentcode.courseCode);
+    // console.log(studentCodes);
+
+    let gradedCourses = await model.getAllGradedCourses(username);
+    let gradedCoursesCodes = gradedCourses.map(gradedCourse => gradedCourse.course);
+    // console.log(gradedCoursesCodes);
+
+    let ungradedCourses = studentCodes.filter(course => !gradedCoursesCodes.includes(course));
+    console.log(ungradedCourses);
+
+    for (const [key, value] of Object.entries(req.body)) {
+        console.log('Processing course:', key, 'with value:', value);
+        if (ungradedCourses.includes(key)) {
+            if (value !== null && value !== undefined && value !== ''){
+                console.log("SAVE")
+                await model.saveGrade(username, key, value);
+                // console.log(`Course ${key} is ungraded and has a grade of ${value}`);
+            }
+        } else {
+            console.log("UPDATE")
+            await model.updateGrade(username, key, value);
+            // console.log(`Course ${key} is graded and has a grade of ${value}`);
+        }
+    }
+    
+    res.redirect('/');
+}   
+);
+
+router.route('/register').post(async (req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+    let email= req.body.email;
+    let passconf= req.body.confirmpassword;
+    console.log(username, password, email, passconf);
+    try{
+        if (password !== passconf){
+            throw "Passwords do not match";
+        }
+        else{
+            let checkuser = await model.checkUser(username);
+            let checkemail = await model.checkEmail(email);
+            if(checkuser.length > 0 || checkemail.length > 0){
+                throw "Username or mail already exists";
+            }
+            else{
+                await model.registerUser(username, email, password);
+                res.redirect('/login');
+            }
+        }
+    }
+    catch(err){
+        console.log(err);
+        res.send(err);
+    }
 });
+
 
 router.use((req, res) => {
     res.render('catcherror');
