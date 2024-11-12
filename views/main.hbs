@@ -64,6 +64,7 @@
                 </div>
             </div>
             <div class="year" id="year4">
+                {{#if courses7}}
                 <div class="semester form-group" id="semester7">
                     <legend>7o Εξάμηνο</legend>
                     {{#each courses7}}
@@ -73,6 +74,60 @@
                     </div>
                     {{/each}}
                 </div>
+                {{else}}
+                <div class="semester form-group" id="semester7">
+                    <legend>7o Εξάμηνο</legend>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 1" name="course71">
+                        <input type="number" id="grade71" name="grade71" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt71c" id="synt71c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 2" name="course72">
+                        <input type="number" id="grade71" name="grade72" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt72c" id="synt72c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 3" name="course73">
+                        <input type="number" id="grade73" name="grade73" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt73c" id="synt73c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 4" name="course74">
+                        <input type="number" id="grade74" name="grade74" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt74c" id="synt74c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 5" name="course75">
+                        <input type="number" id="grade75" name="grade75" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt75c" id="synt75c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 6" name="course76">
+                        <input type="number" id="grade76" name="grade76" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt76c" id="synt76c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>  
+                {{/if}}
+                {{#if courses8}}
                 <div class="semester form-group" id="semester8">
                     <legend>8o Εξάμηνο</legend>
                     {{#each courses8}}
@@ -82,8 +137,62 @@
                     </div>
                     {{/each}}
                 </div>
+                {{else}}
+                <div class="semester form-group" id="semester8">
+                    <legend>8o Εξάμηνο</legend>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 1" name="course81">
+                        <input type="number" id="grade81" name="grade81" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt81c" id="synt81c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 2" name="course82">
+                        <input type="number" id="grade81" name="grade82" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt82c" id="synt82c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 3" name="course83">
+                        <input type="number" id="grade83" name="grade83" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt83c" id="synt83c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 4" name="course84">
+                        <input type="number" id="grade84" name="grade84" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt84c" id="synt84c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 5" name="course85">
+                        <input type="number" id="grade85" name="grade85" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt85c" id="synt85c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 6" name="course86">
+                        <input type="number" id="grade86" name="grade86" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt86c" id="synt86c"> 
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>  
+                {{/if}}
             </div>
             <div class="year" id="year5">
+                 {{#if courses9}}
                 <div class="semester form-group" id="semester9">
                     <legend>9o Εξάμηνο</legend>
                     {{#each courses9}}
@@ -93,6 +202,43 @@
                     </div>
                     {{/each}}
                 </div>
+                {{else}}
+                <div class="semester form-group" id="semester9">
+                    <legend>9o Εξάμηνο</legend>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 2" name="course91">
+                        <input type="number" id="grade91" name="grade91" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt91c">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 2" name="course92">
+                        <input type="number" id="grade92" name="grade92" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt92c">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 3" name="course93">
+                        <input type="number" id="grade93" name="grade93" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt93c">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>  
+                    <div class="course">
+                        <input type="text" placeholder="Μάθημα 4" name="course94">
+                        <input type="number" id="grade94" name="grade94" min="0" max="10" step="0.5" required>
+                        <label class="switch">
+                            <input type="checkbox" name="synt94c">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>  
+                {{/if}}
                 <div class="semester form-group" id="semester10">
                     <legend>10o Εξάμηνο</legend>
                     {{#each courses10}}
